@@ -1,13 +1,20 @@
 {
+    "exclude": [
+        "../../../node_modules/@types/**/*"
+    ],
     "compilerOptions": {
-        "target": "es5",
+        "target": "es6",
+        "lib": [
+            "es2015", "es2016", "es2017", "esnext.array"
+        ],
         "removeComments": true,
         "preserveConstEnums": true,
         "outFile": "./build/build.js",
-        "sourceRoot": "./sketch/",
-        "rootDir": "./sketch/",
+        "sourceRoot": "./src/",
+        "rootDir": "./",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "none"
+        "module": "none",
+        "esModuleInterop": true
     }
 }

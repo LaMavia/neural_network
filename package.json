@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "Project to quickly get something working in [p5.js](https://p5js.org/) and [typescript](https://www.typescriptlang.org/)",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "concurrently \"browser-sync start --server -w\" \" tsc --watch\""
   },
   "homepage": "https://github.com/Gaweph/p5-typescript-starter#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.11",
     "@types/p5": "^0.7.1",
     "browser-sync": "^2.26.3",
     "concurrently": "^3.6.1",
+    "jest": "^24.7.1",
+    "ts-jest": "^24.0.2",
     "typescript": "^2.9.2"
   }
 }
