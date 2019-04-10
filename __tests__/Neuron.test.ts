@@ -1,6 +1,5 @@
 import { Neuron, randomData } from "../src/Neuron";
 import { initEmptyMatrix } from "../src/Matrix";
-import { do_log } from "../src/helpers/log";
 
 describe("Activation", () => {
   it("Works", () => {

@@ -48,6 +48,10 @@ export class Matrix {
     return [this.rows, this.cols]
   }
 
+  get length() {
+    return this.rows * this.cols
+  }
+
   add(matrix: Matrix) {
     const arr = initEmpty2D([this.rows, this.cols])
     for (let r = 0; r < this.rows; r++)
@@ -102,6 +106,10 @@ export class Matrix {
   sigmoid() {
     const a = this.data.map(r => [sigmoid(r.reduce((acc, x) => acc += x, 0))])
     return a
+  }
+
+  sum_up() {
+    return this.data.reduce((sum, r) => sum += r.reduce((r_sum, cell) => r_sum += cell, 0), 0)
   }
 
   map(mapper: Mapper) {
