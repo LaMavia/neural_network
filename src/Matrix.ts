@@ -52,6 +52,12 @@ export class Matrix {
     return this.rows * this.cols
   }
 
+  * [Symbol.iterator]() {
+    for(const x of this.data) {
+      yield x
+    }
+  }
+
   add(matrix: Matrix) {
     const arr = initEmpty2D([this.rows, this.cols])
     for (let r = 0; r < this.rows; r++)

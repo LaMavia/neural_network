@@ -1,6 +1,5 @@
 import { Network } from "../src/Network";
-import { initEmpty2D, initEmptyMatrix, Matrix } from "../src/Matrix";
-import { Neuron } from "../src/Neuron";
+import { initEmptyMatrix } from "../src/Matrix";
 import { initNeurons } from "../src/helpers/initNeurons";
 import { do_log } from "../src/helpers/log";
 
@@ -31,5 +30,15 @@ describe("Constructor", () => {
     const cost = n.cost(out, initEmptyMatrix([2, 1], Math.random))
     do_log(cost)
     expect(cost).toBeLessThan(1)
+  })
+
+  it("Backpropagation", () => { 
+    const n = new Network(initNeurons([2, 4, 2]), 2)
+    n.train([
+      {
+        correct: initEmptyMatrix([2, 1], Math.random),
+        input: initEmptyMatrix([2, 1], Math.random)
+      }
+    ], 20000)
   })
 }) 

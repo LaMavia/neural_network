@@ -1,0 +1,1 @@
+export const sum = (array: number[]) => array.reduce((acc, x) => acc += x, 0)

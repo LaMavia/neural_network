@@ -1,10 +1,13 @@
 import { Matrix, initEmpty2D, initEmptyMatrix } from "./Matrix";
 import { getDimensions } from "./helpers/getDimensions";
+import { sum } from "./helpers/sum";
 
 export class Neuron {
   bias: number
   inputs_len: number
   weights: Matrix
+  last_output: number = null
+  last_error: number = null
 
   constructor(inputs: number) {
     this.bias = Math.random()
@@ -20,10 +23,19 @@ export class Neuron {
       .mult(inputs)
       .data
       .flat(2)
-      .reduce((acc, x, i) => 
-        acc += x
-      , this.bias)
-    return sigmoid(o)
+      .reduce((acc, x, i) => acc += x, this.bias)
+    const out = sigmoid(o)
+    this.last_output = out
+    return out
+  }
+
+  adjust(weights_error: Matrix, bias_error: number) {
+    this.weights = this.weights.map((x, r, c) => ((x - weights_error.get(r, c)) ** 2) / 2)
+    this.bias -= bias_error
+  }
+
+  train(error: Matrix) {
+    
   }
 }
 
